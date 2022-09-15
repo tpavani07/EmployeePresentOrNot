@@ -1,11 +1,11 @@
-isPresent=1;
-randomCheck=$((RANDOM%2));
-
-if [ $isPresent -eq $randomCheck ];
+var1=10
+var2=22
+if [ $var2 -gt $var1 ]
 then
-     empRatePerHr=20;
-     empHrs=8;
-     salary=$(($empHrs*$empRatePerHr));
+    echo "$var2 is greater than $var1"
+elif [ $var2 -eq $var1 ]
+then 
+    echo "variables are equal"
 else
-     salary=0;
+    echo "$var2 is less than $var1"
 fi
