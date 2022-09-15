@@ -1,11 +1,16 @@
-var1=10
-var2=22
-if [ $var2 -gt $var1 ]
+isPartTime=1;
+isFullTime=2;
+empRatePerHr=20;
+randomCheck=$((RANDOM%3));
+
+if [ $isFullTime -eq $randomCheck ];
 then
-    echo "$var2 is greater than $var1"
-elif [ $var2 -eq $var1 ]
-then 
-    echo "variables are equal"
+     empHrs=8;
+elif [ $isPartTime -eq $randomCheck ];
+then
+     empHrs=4;
 else
-    echo "$var2 is less than $var1"
+     empHrs=0;
 fi
+
+salary=$(($empHrs*empRatePerHr));
