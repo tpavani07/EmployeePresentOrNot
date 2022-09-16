@@ -1,16 +1,16 @@
-isPartTime=1;
-isFullTime=2;
-empRatePerHr=20;
-randomCheck=$((RANDOM%3));
-
-if [ $isFullTime -eq $randomCheck ];
-then
-     empHrs=8;
-elif [ $isPartTime -eq $randomCheck ];
-then
-     empHrs=4;
-else
-     empHrs=0;
-fi
-
-salary=$(($empHrs*empRatePerHr));
+for filename in $(ls)
+do
+  # Take extension available in s filename
+  ext=${filename##*/.}
+  case "$ext" in
+     java) echo "$filename : Java source file"
+           ;;
+      o)   echo "$filename : Object file"
+           ;;
+      sh)  echo "$filename : Shell script"
+           ;;
+      txt) echo "$filename : Text file"
+           ;;
+       *)  echo "$filename : Not processed"
+   esac
+done
