@@ -1,12 +1,17 @@
 isPartTime=1;
 isFullTime=2;
+empHrs=0;
+workingHours=0;
 totalSalary=0;
+totalWorkingHour=20;
 empRatePerHr=20;
 numWorkingDays=20;
-for (( day=1; day<=numWorkingDays; Day++ ))
+day=1;
+
+while [[ $day -le 20 && $totalWorkingHour ]]
 do
-  empCheck=$((RANDOM%3));
-    case $empCheck in $isFullTime)
+randomCheck=$((RANDOM%3));
+    case $ramdomCheck in $isFullTime)
            empHrs=8;;
            $isPartTime)
            emoHrs=4;;
@@ -14,8 +19,17 @@ do
            empHrs=0;;
 esac
   
-salary=$(($empHrs*$empRatePerHr));
-totalSalary=$(($totalSalary+$salary));
+
+totalWorkingHour=$(($$totalWorkingHour+$empHrs));
+
+if [ $totalWorkingHour -gt 40 ]
+then
+totalWorkingHour=$(($totalWorkingHour-$workingHour))
+break;
+fi
+salary=$(($empRatePerHr*$empHrs))
+totalSalary=$(($totalSalry+$salary))
+((day++))
 done
 
-echo "employee has earned $totalSalary $ in a month";
+echo "Employee has earned $totalSalary$ in a month (Total Working Hour :$totalWorkingHour)";
